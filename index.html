@@ -19,7 +19,6 @@
             --accent:        #E8D5A3;
             --accent2:       #C9B070;
             --nav-inactive:  #5A84A8;
-
             --bg:            #0F1E2E;
             --card-bg:       #0A1C2E;
             --drawer-bg:     #0A1628;
@@ -33,7 +32,6 @@
             --action-bar:    #0D2137;
             --btn-border:    #2A5070;
             --btn-color:     #8AB4D4;
-
             --urdu-size: 20px;
             --arabic-size: 26px;
         }
@@ -58,25 +56,23 @@
             font-family: 'JameelNoori';
             src: url('JameelNoori.woff2') format('woff2');
             font-weight: normal;
-            font-display: swap; /* فاسٹ لوڈنگ کے لیے */
+            font-display: swap;
         }
-
         @font-face {
             font-family: 'AlQalam';
             src: url('AlQalam.woff2') format('woff2');
             font-weight: normal;
-            font-display: swap; /* فاسٹ لوڈنگ کے لیے */
+            font-display: swap;
         }
 
         /* ===== RESET & BASE ===== */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html, body { 
-            height: 100%; 
-            height: 100dvh; /* نئے آئی فونز کے لیے */
-            width: 100%; 
-            overflow: hidden; 
+        html, body {
+            height: 100%;
+            height: 100dvh;
+            width: 100%;
+            overflow: hidden;
         }
-
         body {
             font-family: 'JameelNoori', 'Noto Nastaliq Urdu', serif;
             background: var(--bg);
@@ -132,7 +128,6 @@
             background: linear-gradient(90deg, transparent, var(--accent2), transparent);
             margin: 4px 0;
         }
-
         .splash-middle {
             flex: 1;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -166,11 +161,10 @@
             color: var(--accent2);
             line-height: 1;
         }
-
         .splash-bottom {
             width: 100%;
             background: linear-gradient(180deg, transparent, rgba(10,22,40,0.95));
-            padding: 20px 24px calc(30px + env(safe-area-inset-bottom)); 
+            padding: 20px 24px calc(30px + env(safe-area-inset-bottom));
             display: flex; flex-direction: column; align-items: center;
             gap: 10px;
             flex-shrink: 0;
@@ -271,7 +265,7 @@
         .tab-content { display: none; }
         .tab-content.active { display: block; }
 
-        /* NEW: SELECTION MENU */
+        /* SELECTION MENU */
         #selectionMenu {
             display: none; position: absolute; background: var(--primary);
             border: 1px solid var(--accent2); border-radius: 8px;
@@ -280,14 +274,14 @@
         .sel-btn { background: none; border: none; color: var(--accent); font-family: 'JameelNoori', serif; font-size: 16px; padding: 5px 12px; cursor: pointer; border-left: 1px solid var(--border); }
         .sel-btn:last-child { border-left: none; }
 
-        /* CONTINUOUS SCROLL PAGE BLOCK */
+        /* PAGE BLOCK */
         .page-block {
             background: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 16px;
             margin-bottom: 16px;
-            user-select: text; /* ٹکسٹ سلیکشن کی اجازت */
+            user-select: text;
             -webkit-user-select: text;
         }
         .page-footer {
@@ -321,12 +315,12 @@
             direction: rtl;
             text-align: justify;
         }
-        .arabic-text  {
+        .arabic-text {
             font-family: 'AlQalam', 'Amiri', serif;
             font-size: var(--arabic-size);
             line-height: 2.4;
             color: var(--urdu-color);
-            font-weight: normal; 
+            font-weight: normal;
             direction: rtl;
         }
         .book-heading {
@@ -360,18 +354,16 @@
             border-bottom: 2px solid #E87D5A;
         }
 
-        /* SEARCH & HISTORY */
+        /* SEARCH */
         .search-container { position: relative; display: flex; gap: 8px; margin-bottom: 12px; }
         .search-box-wrapper { position: relative; flex: 1; display: flex; align-items: center; background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; }
         .search-box-wrapper:focus-within { border-color: var(--accent2); }
         .history-icon { padding: 10px 14px; cursor: pointer; color: var(--sub-color); font-size: 18px; }
         .search-input { flex: 1; padding: 10px 14px 10px 0; border: none; background: transparent; color: var(--urdu-color); font-family: 'JameelNoori', serif; font-size: 16px; outline: none; direction: rtl; }
-        
         #historyDropdown { display: none; position: absolute; top: 100%; right: 0; width: 100%; background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; z-index: 50; max-height: 200px; overflow-y: auto; margin-top: 5px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
         .history-item { padding: 10px 15px; border-bottom: 1px solid var(--border); cursor: pointer; font-family: 'JameelNoori', serif; font-size: 16px; color: var(--urdu-color); text-align: right; direction: rtl; }
         .history-item:hover { background: var(--primary-light); }
         .history-clear { text-align: center; color: #E87D7D; font-weight: bold; }
-
         .search-btn {
             background: var(--primary);
             color: var(--accent);
@@ -383,9 +375,7 @@
             cursor: pointer;
             white-space: nowrap;
         }
-        .search-modes {
-            display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px;
-        }
+        .search-modes { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
         .mode-btn {
             background: var(--card-bg);
             color: var(--sub-color);
@@ -397,11 +387,7 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-        .mode-btn.active {
-            background: var(--primary);
-            color: var(--accent);
-            border-color: var(--accent2);
-        }
+        .mode-btn.active { background: var(--primary); color: var(--accent); border-color: var(--accent2); }
         .result-count {
             background: var(--card-bg);
             border: 1px solid var(--border);
@@ -494,7 +480,7 @@
         .nav-item.active { color: var(--accent); border-top-color: var(--accent2); }
         .nav-icon { font-size: 18px; display: block; margin-bottom: 2px; }
 
-        /* NEW: SMART TOC DRAWER (Accordion) */
+        /* ===== TOC DRAWER ===== */
         .drawer-overlay {
             display: none; position: absolute; inset: 0; background: rgba(0,0,0,0.5); z-index: 100;
         }
@@ -507,24 +493,52 @@
         }
         .drawer.open { display: flex; }
         @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+
         .drawer-header {
             background: var(--primary);
+            border-bottom: 1px solid var(--primary-light);
+            flex-shrink: 0;
+        }
+        /* ===== FIX 1: Header اور Search الگ الگ ===== */
+        .drawer-header-top {
             padding: 14px 16px;
             display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px solid var(--primary-light);
         }
         .drawer-title { color: var(--accent); font-weight: 700; font-size: 17px; }
         .drawer-close { background: none; border: none; color: var(--accent); font-size: 22px; cursor: pointer; }
-        
+
+        /* ===== FIX 2: TOC Search bar صحیح جگہ ===== */
+        .toc-search-bar {
+            padding: 10px 12px;
+            border-top: 1px solid var(--primary-light);
+        }
+        .toc-search-bar input {
+            width: 100%;
+            padding: 9px 14px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            color: var(--urdu-color);
+            font-family: 'JameelNoori', serif;
+            font-size: 15px;
+            direction: rtl;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .toc-search-bar input:focus { border-color: var(--accent2); }
+
         .drawer-body { flex: 1; overflow-y: auto; padding: 0; }
         .toc-item-header { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-bottom: 1px solid rgba(26,58,92,0.4); }
         .toc-item-content { flex: 1; cursor: pointer; text-align: right; }
         .toc-title { color: var(--toc-ch); font-size: 16px; font-weight: 600; }
         .toc-sub { color: var(--toc-vol); font-size: 13px; margin-top: 2px; }
-        .toc-arrow { padding: 10px; cursor: pointer; color: var(--accent2); font-size: 14px; transition: 0.3s; }
+        .toc-arrow { padding: 10px; cursor: pointer; color: var(--accent2); font-size: 14px; transition: transform 0.3s; }
+        .toc-arrow.expanded { transform: rotate(180deg); }
         .toc-children { display: none; background: rgba(0,0,0,0.1); border-right: 3px solid var(--accent2); }
         .toc-children.open { display: block; }
         .toc-child-item { padding: 10px 20px 10px 10px; border-bottom: 1px dotted rgba(26,58,92,0.3); text-align: right; cursor: pointer; color: var(--sub-color); font-size: 15px; }
+        .toc-child-item:hover { color: var(--accent); }
 
         /* DIALOGS */
         .dialog-overlay {
@@ -559,7 +573,7 @@
             cursor: pointer;
         }
 
-        /* BOOKMARKS TAB */
+        /* BOOKMARKS */
         .bm-empty { text-align: center; color: var(--sub-color); padding: 40px 20px; font-size: 16px; }
         .bm-card {
             background: var(--card-bg); border: 1px solid var(--border);
@@ -579,10 +593,20 @@
             font-size: 14px; cursor: pointer; white-space: nowrap;
         }
 
-        /* PDF VIEWER */
-        #pdfFrame {
-            width: 100%; height: 100%; border: none;
+        /* ===== FIX 3: PDF VIEWER (موبائل کے لیے بہتر) ===== */
+        #pdfContainer {
             display: none;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background: #1A1A1A;
+            -webkit-overflow-scrolling: touch; /* iOS smooth scroll */
+        }
+        #pdfCanvas {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            touch-action: pan-x pan-y; /* موبائل ٹچ */
         }
         .pdf-bar {
             display: none;
@@ -597,7 +621,18 @@
             padding: 6px 12px; border-radius: 8px;
             font-family: 'JameelNoori', serif; font-size: 15px; cursor: pointer;
         }
-        .pdf-label { color: var(--accent); font-size: 15px; flex: 1; text-align: center; }
+        /* PDF Navigation */
+        .pdf-nav {
+            display: flex; align-items: center; gap: 8px; flex: 1; justify-content: center;
+        }
+        .pdf-nav-btn {
+            background: var(--primary-light); color: var(--accent);
+            border: 1px solid var(--btn-border);
+            padding: 6px 14px; border-radius: 8px;
+            font-family: 'JameelNoori', serif; font-size: 15px; cursor: pointer;
+        }
+        .pdf-page-info { color: var(--accent); font-size: 14px; font-family: sans-serif; }
+        .pdf-label { color: var(--accent); font-size: 15px; }
 
         /* RESPONSIVE */
         @media (min-width: 600px) {
@@ -640,7 +675,6 @@
         <div class="splash-book-sub">فِي الْفِقْهِ الشَّافِعِي</div>
         <div class="splash-divider"></div>
     </div>
-
     <div class="splash-middle">
         <div class="splash-ornament">❧</div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
@@ -651,7 +685,6 @@
         </div>
         <div class="splash-ornament">❧</div>
     </div>
-
     <div class="splash-bottom">
         <div class="splash-dev-label">تیار کردہ</div>
         <div class="splash-dev-name">مفتی اظہر بن محمد امین پٹیل</div>
@@ -661,16 +694,21 @@
 </div>
 
 <div id="app">
-
     <div class="sbar">
         <span id="clock">٩:٤١</span>
         <span>تحفۃ الباری</span>
         <span>📶 🔋</span>
     </div>
 
+    <!-- PDF BAR (صفحہ نمبر نیویگیشن کے ساتھ) -->
     <div class="pdf-bar" id="pdfBar">
         <button class="pdf-back-btn" onclick="closePdf()">⬅ واپس</button>
-        <div class="pdf-label">اصل کتاب PDF</div>
+        <div class="pdf-nav">
+            <button class="pdf-nav-btn" onclick="changePdfPage(-1)">◀ پچھلا</button>
+            <span class="pdf-page-info" id="pdfPageInfo">-</span>
+            <button class="pdf-nav-btn" onclick="changePdfPage(1)">اگلا ▶</button>
+        </div>
+        <div class="pdf-label">PDF 📄</div>
     </div>
 
     <div class="toolbar" id="mainToolbar">
@@ -695,19 +733,33 @@
 
         <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
 
+        <!-- ===== TOC DRAWER (مکمل ٹھیک) ===== -->
         <div class="drawer" id="tocDrawer">
             <div class="drawer-header">
-                <button class="drawer-close" onclick="closeDrawer()">✕</button>
-                <div class="drawer-title">فہرست مضامین</div>
-                <div class="toc-search" style="padding: 10px; border-bottom: 1px solid var(--border);">
-    <input type="text" id="tocSearch" placeholder="فہرست میں تلاش کریں..." oninput="filterToc()" style="width: 100%; padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--card-bg); color: var(--urdu-color); font-family: 'JameelNoori', serif; direction: rtl; box-sizing: border-box;">
-</div>
+                <!-- اوپر: عنوان اور بند بٹن -->
+                <div class="drawer-header-top">
+                    <button class="drawer-close" onclick="closeDrawer()">✕</button>
+                    <div class="drawer-title">فہرست مضامین</div>
+                    <div style="width:32px;"></div>
+                </div>
+                <!-- نیچے: سرچ بار -->
+                <div class="toc-search-bar">
+                    <input
+                        type="text"
+                        id="tocSearch"
+                        placeholder="فہرست میں تلاش کریں..."
+                        oninput="filterToc()"
+                        autocomplete="off"
+                    >
+                </div>
             </div>
+            <!-- TOC Body: پہلے سے صحیح حالت میں -->
             <div class="drawer-body" id="tocBody">
-                <div class="bm-empty">ڈیٹا لوڈ ہو رہا ہے...</div>
+                <div class="bm-empty" id="tocLoadingMsg">فہرست تیار ہو رہی ہے...</div>
             </div>
         </div>
 
+        <!-- JUMP DIALOG -->
         <div class="dialog-overlay" id="jumpDialog">
             <div class="dialog-box">
                 <div class="dialog-title">صفحے پر جائیں</div>
@@ -739,12 +791,12 @@
             <div class="loading-text">لوڈ ہو رہا ہے...</div>
         </div>
 
-        <div id="pdfContainer" style="display:none; width:100%; height:100%; overflow:auto; background:#1A1A1A; text-align:center;">
-    <canvas id="pdfCanvas"></canvas>
-</div>
+        <!-- ===== FIX 3: PDF Container (موبائل کے لیے بہتر) ===== -->
+        <div id="pdfContainer">
+            <canvas id="pdfCanvas"></canvas>
+        </div>
 
         <div class="content-area" id="contentArea">
-
             <div id="tab-book" class="tab-content active">
                 <div id="bookContent">
                     <div style="text-align:center;color:var(--sub-color);padding:40px 0;">کتاب لوڈ ہو رہی ہے...</div>
@@ -818,7 +870,7 @@
 </div>
 
 <script>
-// ===== FAST LOADING & CACHE STATE =====
+// ===== STATE =====
 const CACHE_KEY = 'tb_book_cache_v3';
 let bookData = [];
 let bookmarks = JSON.parse(localStorage.getItem('tb_bm_v3') || '[]');
@@ -828,8 +880,6 @@ let searchMode = 'exact';
 let urduSize = parseInt(localStorage.getItem('tb_urdu_sz')) || 20;
 let arabicSize = parseInt(localStorage.getItem('tb_arabic_sz')) || 26;
 let currentTheme = localStorage.getItem('tb_theme') || 'night';
-
-// Selected Text State
 let selectedTextObj = { text: '', pageIdx: -1, vol: '', pageNum: '' };
 
 // ===== INIT =====
@@ -838,33 +888,60 @@ applyFonts();
 updateClock();
 setInterval(updateClock, 30000);
 
-// Load book data (Cache First approach)
-const cachedData = localStorage.getItem(CACHE_KEY);
-if (cachedData) {
-    bookData = JSON.parse(cachedData);
-    document.getElementById('startBtn').textContent = 'کتاب شروع کریں ←';
-    initAppCore();
-    // Background fetch to update cache silently if changed
-    fetch('book_data.json').then(r=>r.json()).then(d => localStorage.setItem(CACHE_KEY, JSON.stringify(d))).catch(e=>{});
-} else {
-    showLoading(true);
-    fetch('book_data.json').then(r => r.json()).then(data => {
-        bookData = data;
-        localStorage.setItem(CACHE_KEY, JSON.stringify(data)); // Save to cache
-        showLoading(false);
-        document.getElementById('startBtn').textContent = 'کتاب شروع کریں ←';
-        initAppCore();
-    }).catch(err => {
-        showLoading(false); document.getElementById('startBtn').textContent = 'ایرر! انٹرنیٹ چیک کریں۔';
-        demoMode();
-    });
+// ===== FIX 4: PDF.js Worker درست طریقے سے سیٹ ہو =====
+if (typeof pdfjsLib !== 'undefined') {
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+        'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 }
+
+// ===== BOOK DATA LOAD (Cache First) =====
+(function loadBookData() {
+    try {
+        const raw = localStorage.getItem(CACHE_KEY);
+        if (raw) {
+            bookData = JSON.parse(raw);
+            document.getElementById('startBtn').textContent = 'کتاب شروع کریں ←';
+            initAppCore();
+            // Background refresh
+            fetch('book_data.json')
+                .then(r => r.json())
+                .then(d => localStorage.setItem(CACHE_KEY, JSON.stringify(d)))
+                .catch(() => {});
+            return;
+        }
+    } catch(e) {
+        localStorage.removeItem(CACHE_KEY);
+    }
+
+    // پہلی بار: نیٹ سے لوڈ کریں
+    showLoading(true);
+    fetch('book_data.json')
+        .then(r => {
+            if (!r.ok) throw new Error('HTTP ' + r.status);
+            return r.json();
+        })
+        .then(data => {
+            bookData = data;
+            try { localStorage.setItem(CACHE_KEY, JSON.stringify(data)); } catch(e) {}
+            showLoading(false);
+            document.getElementById('startBtn').textContent = 'کتاب شروع کریں ←';
+            initAppCore();
+        })
+        .catch(err => {
+            showLoading(false);
+            document.getElementById('startBtn').textContent = 'ایرر! انٹرنیٹ چیک کریں۔';
+            demoMode();
+        });
+})();
 
 function initAppCore() {
     renderAllPages();
     renderBookmarks();
-    buildSmartToc();
-    updateHistoryDropdown();
+    // ===== FIX 5: TOC async بنایا تاکہ UI بلاک نہ ہو =====
+    setTimeout(() => {
+        buildSmartToc();
+        updateHistoryDropdown();
+    }, 0);
 }
 
 function demoMode() {
@@ -901,24 +978,21 @@ function switchTab(tab, el) {
     document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
     document.getElementById('tab-' + tab).classList.add('active');
     if (el) el.classList.add('active');
-    if (tab !== 'book') {
-        document.getElementById('contentArea').scrollTop = 0;
-    }
+    if (tab !== 'book') document.getElementById('contentArea').scrollTop = 0;
     closePdfInternal();
     hideSelectionMenu();
 }
 
-// ===== PAGE RENDER & HIGHLIGHTS =====
+// ===== FORMAT CONTENT =====
 function formatContent(text, highlightsForPage = []) {
     let html = text;
     html = html.replace(/\[H1\]([\s\S]*?)\[\/H1\]/g, '<div class="book-heading">$1</div>');
     html = html.replace(/\[H2\]([\s\S]*?)\[\/H2\]/g, '<div class="book-heading-h2">$1</div>');
     html = html.replace(/\[H3\]([\s\S]*?)\[\/H3\]/g, '<div class="book-heading-h3">$1</div>');
     html = html.replace(/<ar>([\s\S]*?)<\/ar>/g, '<span class="arabic-text">$1</span>');
-    
-    if(highlightsForPage.length > 0) {
+    if (highlightsForPage.length > 0) {
         highlightsForPage.forEach(hl => {
-            if(hl.trim() !== '') {
+            if (hl && hl.trim()) {
                 const escaped = hl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
                 html = html.replace(new RegExp(`(${escaped})`, 'gi'), '<span class="highlight">$1</span>');
             }
@@ -928,96 +1002,110 @@ function formatContent(text, highlightsForPage = []) {
     return html;
 }
 
+// ===== RENDER PAGES =====
 function renderAllPages() {
-    const htmls = bookData.map((page, idx) => {
+    const frag = bookData.map((page, idx) => {
         const pageBookmarks = bookmarks.filter(b => b.idx === idx && b.text);
         const highlightsText = pageBookmarks.map(b => b.text);
-        let html = formatContent(page.content || '', highlightsText);
-        
+        const html = formatContent(page.content || '', highlightsText);
         return `
-        <div class="page-block" id="page-idx-${idx}" onmouseup="handleSelection(${idx}, '${page.volume}', ${page.page_number})" ontouchend="handleSelection(${idx}, '${page.volume}', ${page.page_number})">
+        <div class="page-block" id="page-idx-${idx}"
+             onmouseup="handleSelection(${idx},'${page.volume}',${page.page_number})"
+             ontouchend="handleSelection(${idx},'${page.volume}',${page.page_number})">
             <div class="urdu-text">${html}</div>
             <div class="page-footer">
                 <span>جلد: ${page.volume} | صفحہ: ${page.page_number}</span>
                 <div class="page-footer-btns">
                     <button class="page-action-btn" onclick="savePageBookmark(${idx})">🔖 محفوظ کریں</button>
-                    <button class="page-action-btn" onclick="openPdfAt(${page.volume}, ${page.page_number})">📄 PDF دیکھیں</button>
+                    <button class="page-action-btn" onclick="openPdfAt(${page.volume},${page.page_number})">📄 PDF دیکھیں</button>
                 </div>
             </div>
         </div>`;
-    });
-    document.getElementById('bookContent').innerHTML = htmls.join('');
+    }).join('');
+    document.getElementById('bookContent').innerHTML = frag;
 }
 
-// ===== TEXT SELECTION (COPY / SHARE / HIGHLIGHT) =====
+// ===== TEXT SELECTION =====
 function handleSelection(idx, vol, pageNum) {
     setTimeout(() => {
         const sel = window.getSelection();
-        const text = sel.toString().trim();
+        const text = sel ? sel.toString().trim() : '';
         const menu = document.getElementById('selectionMenu');
-        
         if (text.length > 0) {
-            selectedTextObj = { text: text, pageIdx: idx, vol: vol, pageNum: pageNum };
+            selectedTextObj = { text, pageIdx: idx, vol, pageNum };
             const range = sel.getRangeAt(0);
             const rect = range.getBoundingClientRect();
+            const ca = document.getElementById('contentArea');
+            const caRect = ca.getBoundingClientRect();
             menu.style.display = 'flex';
-            menu.style.top = (rect.top + window.scrollY - 50) + 'px';
-            menu.style.left = Math.max(10, rect.left + (rect.width/2) - (menu.offsetWidth/2)) + 'px';
+            menu.style.top = (rect.top - caRect.top + ca.scrollTop - 50) + 'px';
+            menu.style.right = '10px';
+            menu.style.left = 'auto';
         } else {
             menu.style.display = 'none';
         }
-    }, 100);
+    }, 150);
 }
 function hideSelectionMenu() { document.getElementById('selectionMenu').style.display = 'none'; }
-document.addEventListener('mousedown', (e) => { if(!e.target.closest('#selectionMenu')) hideSelectionMenu(); });
-document.addEventListener('touchstart', (e) => { if(!e.target.closest('#selectionMenu') && !e.target.closest('.page-block')) hideSelectionMenu(); });
+document.addEventListener('mousedown', e => { if (!e.target.closest('#selectionMenu')) hideSelectionMenu(); });
+document.addEventListener('touchstart', e => { if (!e.target.closest('#selectionMenu') && !e.target.closest('.page-block')) hideSelectionMenu(); }, {passive:true});
 
 function copySelectedText() {
-    navigator.clipboard.writeText(selectedTextObj.text + `\n[بحوالہ: تحفۃ الباری، جلد ${selectedTextObj.vol}، صفحہ ${selectedTextObj.pageNum}]`);
-    hideSelectionMenu(); window.getSelection().removeAllRanges(); alert("عبارت کاپی ہو گئی!");
+    const ref = `\n[بحوالہ: تحفۃ الباری، جلد ${selectedTextObj.vol}، صفحہ ${selectedTextObj.pageNum}]`;
+    navigator.clipboard.writeText(selectedTextObj.text + ref).then(() => alert("عبارت کاپی ہو گئی!"));
+    hideSelectionMenu(); window.getSelection().removeAllRanges();
 }
 function shareSelectedText() {
-    if (navigator.share) { navigator.share({ text: selectedTextObj.text + `\n[بحوالہ: تحفۃ الباری، جلد ${selectedTextObj.vol}، صفحہ ${selectedTextObj.pageNum}]` }); }
+    const ref = `\n[بحوالہ: تحفۃ الباری، جلد ${selectedTextObj.vol}، صفحہ ${selectedTextObj.pageNum}]`;
+    if (navigator.share) navigator.share({ text: selectedTextObj.text + ref });
     hideSelectionMenu(); window.getSelection().removeAllRanges();
 }
 function highlightSelectedText() {
-    document.getElementById('hlNameInput').value = selectedTextObj.text.substring(0, 30) + "...";
+    document.getElementById('hlNameInput').value = selectedTextObj.text.substring(0, 30) + '...';
     document.getElementById('highlightDialog').classList.add('open');
     hideSelectionMenu(); window.getSelection().removeAllRanges();
 }
 
-// ===== SEARCH WITH HISTORY =====
+// ===== SEARCH =====
 function toggleHistory(e) {
     e.stopPropagation();
     const d = document.getElementById('historyDropdown');
     d.style.display = d.style.display === 'block' ? 'none' : 'block';
 }
-document.addEventListener('click', () => { document.getElementById('historyDropdown').style.display='none'; });
+document.addEventListener('click', () => { const d = document.getElementById('historyDropdown'); if(d) d.style.display = 'none'; });
 
 function updateHistoryDropdown() {
     const box = document.getElementById('historyDropdown');
-    if(searchHistory.length === 0) { box.innerHTML = '<div class="history-item" style="color:var(--sub-color);text-align:center;">کوئی ہسٹری نہیں</div>'; return; }
-    let html = searchHistory.map(h => `<div class="history-item" onclick="useHistory('${h}')"><i class="fa-solid fa-clock-rotate-left" style="margin-left:10px; color:var(--sub-color);"></i>${h}</div>`).join('');
-    html += `<div class="history-item history-clear" onclick="clearHistory()">مسح تاریخ البحث (ہسٹری مٹائیں)</div>`;
+    if (!box) return;
+    if (searchHistory.length === 0) {
+        box.innerHTML = '<div class="history-item" style="color:var(--sub-color);text-align:center;">کوئی ہسٹری نہیں</div>';
+        return;
+    }
+    let html = searchHistory.map(h =>
+        `<div class="history-item" onclick="useHistory('${h.replace(/'/g,"\\'")}')">
+            <i class="fa-solid fa-clock-rotate-left" style="margin-left:10px;color:var(--sub-color);"></i>${h}
+         </div>`
+    ).join('');
+    html += `<div class="history-item history-clear" onclick="clearHistory()">ہسٹری مٹائیں</div>`;
     box.innerHTML = html;
 }
 function useHistory(q) { document.getElementById('searchInput').value = q; doSearch(); }
-function clearHistory() { searchHistory = []; localStorage.setItem('tb_search_hist', '[]'); updateHistoryDropdown(); alert("ہسٹری صاف کر دی گئی!"); }
+function clearHistory() {
+    searchHistory = [];
+    localStorage.setItem('tb_search_hist', '[]');
+    updateHistoryDropdown();
+    alert("ہسٹری صاف کر دی گئی!");
+}
 
 function highlightSearchRes(html, query, mode) {
     if (!query) return html;
-    if (mode === 'exact') {
-        const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        return html.replace(new RegExp(`(${escaped})`, 'gi'), '<span class="highlight" style="background:yellow; color:black;">$1</span>');
-    } else {
-        const words = query.split(' ').filter(Boolean);
-        let res = html;
-        words.forEach(w => {
-            const escaped = w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-            res = res.replace(new RegExp(`(${escaped})`, 'gi'), '<span class="highlight" style="background:yellow; color:black;">$1</span>');
-        });
-        return res;
-    }
+    const words = mode === 'exact' ? [query] : query.split(' ').filter(Boolean);
+    let res = html;
+    words.forEach(w => {
+        const escaped = w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        res = res.replace(new RegExp(`(${escaped})`, 'gi'), '<span class="highlight" style="background:yellow;color:black;">$1</span>');
+    });
+    return res;
 }
 
 function setMode(mode) {
@@ -1033,28 +1121,26 @@ function onSearchInput(val) {
         currentQuery = '';
         document.getElementById('resultCount').style.display = 'none';
         document.getElementById('searchResults').innerHTML = '';
-        return; 
+        return;
     }
-    searchTimeout = setTimeout(() => { doSearch(); }, 300);
+    searchTimeout = setTimeout(() => doSearch(), 300);
 }
 
 function doSearch() {
     const query = document.getElementById('searchInput').value.trim();
     if (!query || bookData.length === 0) return;
     currentQuery = query;
-
-    if(!searchHistory.includes(query)) { 
-        searchHistory.unshift(query); 
-        if(searchHistory.length > 10) searchHistory.pop(); 
-        localStorage.setItem('tb_search_hist', JSON.stringify(searchHistory)); 
-        updateHistoryDropdown(); 
+    if (!searchHistory.includes(query)) {
+        searchHistory.unshift(query);
+        if (searchHistory.length > 10) searchHistory.pop();
+        localStorage.setItem('tb_search_hist', JSON.stringify(searchHistory));
+        updateHistoryDropdown();
     }
-
+    const q = query.toLowerCase();
+    const words = q.split(' ').filter(Boolean);
     const results = bookData.filter(p => {
         const txt = (p.content || '').toLowerCase();
-        const q = query.toLowerCase();
         if (searchMode === 'exact') return txt.includes(q);
-        const words = q.split(' ').filter(Boolean);
         if (searchMode === 'all') return words.every(w => txt.includes(w));
         return words.some(w => txt.includes(w));
     });
@@ -1063,15 +1149,15 @@ function doSearch() {
     rc.style.display = 'block';
     rc.textContent = `${results.length} نتائج ملے`;
 
-    const box = document.getElementById('searchResults');
-    if (results.length === 0) { box.innerHTML = '<div class="bm-empty">کچھ نہیں ملا۔</div>'; return; }
-
-    box.innerHTML = results.slice(0, 80).map(res => {
+    if (results.length === 0) {
+        document.getElementById('searchResults').innerHTML = '<div class="bm-empty">کچھ نہیں ملا۔</div>';
+        return;
+    }
+    document.getElementById('searchResults').innerHTML = results.slice(0, 80).map(res => {
         const idx = bookData.indexOf(res);
-        let snippet = (res.content || '').replace(/<[^>]*>/g,'').replace(/\[[^\]]*\]/g,'').substring(0,100) + '...';
+        let snippet = (res.content || '').replace(/<[^>]*>/g,'').replace(/\[[^\]]*\]/g,'').substring(0,120) + '...';
         snippet = highlightSearchRes(snippet, query, searchMode);
-        
-        return `<div class="list-card" onclick="jumpTo(${idx}, true)">
+        return `<div class="list-card" onclick="jumpTo(${idx},true)">
             <div class="list-card-title">${res.chapter_h1 || 'متن'}</div>
             <div style="color:var(--urdu-color);font-size:14px;margin:4px 0;line-height:1.8;">${snippet}</div>
             <div class="list-card-sub">جلد: ${res.volume} | صفحہ: ${res.page_number}</div>
@@ -1080,7 +1166,7 @@ function doSearch() {
 }
 
 // ===== JUMP =====
-function jumpTo(idx, fromSearch=false) {
+function jumpTo(idx, fromSearch = false) {
     showLoading(true);
     setTimeout(() => {
         const el = document.getElementById('page-idx-' + idx);
@@ -1088,8 +1174,7 @@ function jumpTo(idx, fromSearch=false) {
             if (fromSearch && currentQuery) {
                 const page = bookData[idx];
                 const pageBookmarks = bookmarks.filter(b => b.idx === idx && b.text);
-                const highlightsText = pageBookmarks.map(b => b.text);
-                let html = formatContent(page.content || '', highlightsText);
+                let html = formatContent(page.content || '', pageBookmarks.map(b => b.text));
                 html = highlightSearchRes(html, currentQuery, searchMode);
                 el.querySelector('.urdu-text').innerHTML = html;
             }
@@ -1114,33 +1199,31 @@ function doJump() {
 function savePageBookmark(idx) {
     if (!bookData.length) return;
     const page = bookData[idx];
-    const exists = bookmarks.find(b => b.vol == page.volume && b.page == page.page_number && !b.text);
-    if (exists) { alert('یہ صفحہ پہلے سے محفوظ ہے! 🔖'); return; }
-    bookmarks.push({ vol: page.volume, page: page.page_number, title: page.chapter_h1 || 'محفوظ صفحہ', idx: idx, text: null });
+    if (bookmarks.find(b => b.vol == page.volume && b.page == page.page_number && !b.text)) {
+        alert('یہ صفحہ پہلے سے محفوظ ہے! 🔖'); return;
+    }
+    bookmarks.push({ vol: page.volume, page: page.page_number, title: page.chapter_h1 || 'محفوظ صفحہ', idx, text: null });
     localStorage.setItem('tb_bm_v3', JSON.stringify(bookmarks));
     alert('صفحہ محفوظ کر لیا گیا! 🔖');
     renderBookmarks();
 }
-
 function saveHighlightBookmark() {
     const title = document.getElementById('hlNameInput').value.trim() || 'اہم عبارت';
-    bookmarks.push({ vol: selectedTextObj.vol, page: selectedTextObj.pageNum, title: title, idx: selectedTextObj.pageIdx, text: selectedTextObj.text });
+    bookmarks.push({ vol: selectedTextObj.vol, page: selectedTextObj.pageNum, title, idx: selectedTextObj.pageIdx, text: selectedTextObj.text });
     localStorage.setItem('tb_bm_v3', JSON.stringify(bookmarks));
     document.getElementById('highlightDialog').classList.remove('open');
     alert('عبارت ہائی لائٹ اور محفوظ ہو گئی! 🔖');
     renderBookmarks(); renderAllPages();
 }
-
 function deleteBookmark(i) {
     bookmarks.splice(i, 1);
     localStorage.setItem('tb_bm_v3', JSON.stringify(bookmarks));
     renderBookmarks(); renderAllPages();
 }
-
 function renderBookmarks() {
     const box = document.getElementById('bookmarksList');
     if (!bookmarks.length) { box.innerHTML = '<div class="bm-empty">کوئی مقام محفوظ نہیں ہے۔</div>'; return; }
-    box.innerHTML = bookmarks.map((bm,i) => `
+    box.innerHTML = bookmarks.map((bm, i) => `
         <div class="bm-card">
             <button class="bm-del" onclick="deleteBookmark(${i})">حذف</button>
             <div class="bm-info" onclick="jumpTo(${bm.idx})">
@@ -1151,93 +1234,115 @@ function renderBookmarks() {
         </div>`).join('');
 }
 
-// ===== SMART TOC (Accordion & Search) =====
+// ===== TOC (مکمل درست) =====
 let tocData = [];
+let tocFiltered = [];
 
 function buildSmartToc() {
     const h1Regex = /\[H1\]([\s\S]*?)\[\/H1\]/g;
     const h2Regex = /\[H2\]([\s\S]*?)\[\/H2\]/g;
-    tocData = []; let currentH1 = null;
-    
+    tocData = [];
+    let currentH1 = null;
     bookData.forEach((page, idx) => {
         const content = page.content || '';
         let m1; h1Regex.lastIndex = 0;
         while ((m1 = h1Regex.exec(content)) !== null) {
-            currentH1 = { title: m1[1].trim(), sub: `جلد: ${page.volume} | صفحہ: ${page.page_number}`, idx: idx, children: [] };
+            currentH1 = {
+                title: m1[1].trim(),
+                sub: `جلد: ${page.volume} | صفحہ: ${page.page_number}`,
+                idx,
+                children: []
+            };
             tocData.push(currentH1);
         }
         let m2; h2Regex.lastIndex = 0;
         while ((m2 = h2Regex.exec(content)) !== null) {
-            if(currentH1) currentH1.children.push({ title: m2[1].trim(), idx: idx });
-            else tocData.push({ title: m2[1].trim(), sub: `جلد: ${page.volume} | صفحہ: ${page.page_number}`, idx: idx, children: [] });
+            const child = { title: m2[1].trim(), idx };
+            if (currentH1) currentH1.children.push(child);
+            else tocData.push({ title: child.title, sub: `جلد: ${page.volume} | صفحہ: ${page.page_number}`, idx, children: [] });
         }
     });
+    tocFiltered = tocData;
     renderToc(tocData);
 }
 
 function renderToc(data) {
     const box = document.getElementById('tocBody');
-    if (!data.length) { box.innerHTML = '<div class="bm-empty">فہرست میں کچھ نہیں ملا</div>'; return; }
-    
-    let html = '';
-    data.forEach((item, i) => {
+    if (!data || data.length === 0) {
+        box.innerHTML = '<div class="bm-empty">فہرست میں کچھ نہیں ملا</div>';
+        return;
+    }
+    box.innerHTML = data.map((item, i) => {
         const hasChildren = item.children && item.children.length > 0;
-        html += `
+        return `
         <div>
             <div class="toc-item-header">
                 <div class="toc-item-content" onclick="tocJump(${item.idx})">
                     <div class="toc-title">${item.title}</div>
-                    <div class="toc-sub">${item.sub}</div>
+                    <div class="toc-sub">${item.sub || ''}</div>
                 </div>
-                ${hasChildren ? `<div class="toc-arrow" onclick="toggleTocNode(${i})">▼</div>` : ''}
+                ${hasChildren ? `<div class="toc-arrow" id="toc-arrow-${i}" onclick="toggleTocNode(${i})">▼</div>` : ''}
             </div>
             ${hasChildren ? `
             <div class="toc-children" id="toc-child-${i}">
-                ${item.children.map(child => `<div class="toc-child-item" onclick="tocJump(${child.idx})">${child.title}</div>`).join('')}
+                ${item.children.map(child => `
+                    <div class="toc-child-item" onclick="tocJump(${child.idx})">${child.title}</div>
+                `).join('')}
             </div>` : ''}
         </div>`;
-    });
-    box.innerHTML = html;
+    }).join('');
 }
 
 function toggleTocNode(i) {
     const el = document.getElementById(`toc-child-${i}`);
-    if(el) el.classList.toggle('open');
+    const arrow = document.getElementById(`toc-arrow-${i}`);
+    if (el) { el.classList.toggle('open'); }
+    if (arrow) { arrow.classList.toggle('expanded'); }
 }
 
+// ===== FIX 6: filterToc بہتر اور تیز =====
 function filterToc() {
-    const q = document.getElementById('tocSearch').value.trim().toLowerCase();
-    if(!q) { renderToc(tocData); return; }
-    
+    const q = (document.getElementById('tocSearch').value || '').trim().toLowerCase();
+    if (!q) {
+        renderToc(tocData);
+        return;
+    }
     const filtered = tocData.filter(item => {
-        if(item.title.toLowerCase().includes(q)) return true;
-        if(item.children && item.children.some(c => c.title.toLowerCase().includes(q))) return true;
+        if (item.title.toLowerCase().includes(q)) return true;
+        if (item.children && item.children.some(c => c.title.toLowerCase().includes(q))) return true;
         return false;
     });
     renderToc(filtered);
-    // سرچ کے دوران ذیلی عنوانات خود بخود کھل جائیں گے
-    setTimeout(() => { document.querySelectorAll('.toc-children').forEach(el => el.classList.add('open')); }, 50);
+    // سرچ کے نتائج میں ذیلی عنوانات خود بخود کھل جائیں
+    setTimeout(() => {
+        document.querySelectorAll('.toc-children').forEach(el => el.classList.add('open'));
+        document.querySelectorAll('.toc-arrow').forEach(el => el.classList.add('expanded'));
+    }, 30);
 }
 
 function tocJump(idx) { jumpTo(idx); closeDrawer(); }
+
 function toggleDrawer() {
     const d = document.getElementById('tocDrawer');
     const o = document.getElementById('drawerOverlay');
     d.classList.toggle('open');
     o.style.display = d.classList.contains('open') ? 'block' : 'none';
+    // جب drawer کھلے تو search input صاف کریں
+    if (d.classList.contains('open')) {
+        const inp = document.getElementById('tocSearch');
+        if (inp) { inp.value = ''; filterToc(); }
+    }
 }
 function closeDrawer() {
     document.getElementById('tocDrawer').classList.remove('open');
     document.getElementById('drawerOverlay').style.display = 'none';
 }
 
-// ===== PDF =====
-if (window['pdfjs-dist/build/pdf']) {
-    window.pdfjsLib = window['pdfjs-dist/build/pdf'];
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-}
-
+// ===== PDF VIEWER (موبائل کے لیے مکمل درست) =====
 let pdfDoc = null;
+let currentPdfPage = 1;
+let totalPdfPages = 0;
+let pdfLoading = false;
 
 function getPdfPage(vol, txtPage) {
     vol = parseInt(vol); txtPage = parseInt(txtPage);
@@ -1249,58 +1354,101 @@ function getPdfPage(vol, txtPage) {
 
 function openPdfAt(vol, txtPage) {
     const pdfPage = getPdfPage(vol, txtPage);
-    // ===== NAYA REPOSITORY URL YAHAN LAGAYA GAYA HAI =====
     const pdfUrl = 'https://raw.githubusercontent.com/masjidboard/Tuhfatul_Bari/main/Tohfat%20ul%20Bari%20Complete.pdf';
-    
+
     document.getElementById('pdfBar').classList.add('visible');
     document.getElementById('mainToolbar').style.display = 'none';
     document.getElementById('contentArea').style.display = 'none';
     document.querySelector('.bottom-nav').style.display = 'none';
-    
+
     const container = document.getElementById('pdfContainer');
-    container.style.display = 'block'; container.scrollTop = 0;
-    
+    container.style.display = 'block';
+    container.scrollTop = 0;
+
     showLoading(true);
 
     if (!pdfDoc) {
+        // ===== FIX 7: PDF worker دوبارہ چیک =====
+        if (typeof pdfjsLib !== 'undefined') {
+            pdfjsLib.GlobalWorkerOptions.workerSrc =
+                'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        }
         const loadingTask = pdfjsLib.getDocument({
             url: pdfUrl,
             cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/',
-            cMapPacked: true, standardFontDataUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/standard_fonts/'
+            cMapPacked: true,
+            standardFontDataUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/standard_fonts/'
         });
-        loadingTask.promise.then(function(pdfDoc_) {
-            pdfDoc = pdfDoc_; renderPdfPage(pdfPage);
-        }).catch(function(err) {
-            showLoading(false); alert("پی ڈی ایف لوڈ کرنے میں مسئلہ آیا: " + err.message);
+        loadingTask.promise.then(pdf => {
+            pdfDoc = pdf;
+            totalPdfPages = pdf.numPages;
+            currentPdfPage = Math.min(pdfPage, totalPdfPages);
+            renderPdfPage(currentPdfPage);
+        }).catch(err => {
+            showLoading(false);
+            alert("پی ڈی ایف لوڈ نہیں ہوئی۔ انٹرنیٹ کنکشن چیک کریں۔\n" + err.message);
         });
     } else {
-        renderPdfPage(pdfPage);
+        currentPdfPage = Math.min(pdfPage, totalPdfPages);
+        renderPdfPage(currentPdfPage);
     }
 }
 
 function renderPdfPage(pageNum) {
-    pdfDoc.getPage(pageNum).then(function(page) {
-        const canvas = document.getElementById('pdfCanvas'); const ctx = canvas.getContext('2d');
-        let unscaledViewport = page.getViewport({ scale: 1.0 });
-        let containerWidth = document.getElementById('pdfContainer').clientWidth;
-        let scale = (containerWidth / unscaledViewport.width) * 0.95;
-        if (scale > 1.6) { scale = 1.6; }
-        const viewport = page.getViewport({ scale: scale });
-        
-        canvas.height = viewport.height; canvas.width = viewport.width;
+    if (!pdfDoc || pdfLoading) return;
+    pdfLoading = true;
+    currentPdfPage = pageNum;
 
-        page.render({ canvasContext: ctx, viewport: viewport }).promise.then(function() {
+    // صفحہ نمبر اپڈیٹ
+    const info = document.getElementById('pdfPageInfo');
+    if (info) info.textContent = `${pageNum} / ${totalPdfPages}`;
+
+    pdfDoc.getPage(pageNum).then(page => {
+        const canvas = document.getElementById('pdfCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // ===== FIX 8: موبائل کے لیے صحیح سکیل =====
+        const container = document.getElementById('pdfContainer');
+        const containerWidth = container.clientWidth || window.innerWidth;
+        const unscaled = page.getViewport({ scale: 1.0 });
+        // devicePixelRatio سے شارپ رینڈرنگ
+        const dpr = window.devicePixelRatio || 1;
+        let scale = (containerWidth / unscaled.width) * 0.97;
+        if (scale > 2.5) scale = 2.5;
+
+        const viewport = page.getViewport({ scale: scale * dpr });
+        canvas.width  = viewport.width;
+        canvas.height = viewport.height;
+        canvas.style.width  = (viewport.width / dpr) + 'px';
+        canvas.style.height = (viewport.height / dpr) + 'px';
+
+        const renderCtx = { canvasContext: ctx, viewport };
+        page.render(renderCtx).promise.then(() => {
             showLoading(false);
-        });
+            pdfLoading = false;
+            container.scrollTop = 0;
+        }).catch(() => { showLoading(false); pdfLoading = false; });
+    }).catch(err => {
+        showLoading(false);
+        pdfLoading = false;
+        alert("صفحہ لوڈ نہیں ہوا: " + err.message);
     });
+}
+
+// اگلا / پچھلا صفحہ
+function changePdfPage(delta) {
+    const newPage = currentPdfPage + delta;
+    if (newPage >= 1 && newPage <= totalPdfPages) {
+        showLoading(true);
+        renderPdfPage(newPage);
+    }
 }
 
 function closePdf() { closePdfInternal(); }
 function closePdfInternal() {
     const container = document.getElementById('pdfContainer');
-    if (container.style.display === 'none') return;
+    if (container.style.display === 'none' || !container.style.display) return;
     container.style.display = 'none';
-    
     document.getElementById('pdfBar').classList.remove('visible');
     document.getElementById('mainToolbar').style.display = 'flex';
     document.getElementById('contentArea').style.display = 'block';
@@ -1311,33 +1459,41 @@ function closePdfInternal() {
 function toggleTheme(isDay) { currentTheme = isDay ? 'day' : 'night'; localStorage.setItem('tb_theme', currentTheme); applyTheme(); }
 function applyTheme() {
     if (currentTheme === 'day') {
-        document.body.setAttribute('data-theme','day');
-        const tog = document.getElementById('themeToggle'); if (tog) tog.checked = true;
-    } else { document.body.removeAttribute('data-theme'); }
+        document.body.setAttribute('data-theme', 'day');
+        const tog = document.getElementById('themeToggle');
+        if (tog) tog.checked = true;
+    } else {
+        document.body.removeAttribute('data-theme');
+    }
 }
 
 // ===== FONTS =====
 function changeFont(type, step) {
-    if (type === 'urdu') { urduSize = Math.min(44, Math.max(14, urduSize + step)); localStorage.setItem('tb_urdu_sz', urduSize); } 
+    if (type === 'urdu') { urduSize = Math.min(44, Math.max(14, urduSize + step)); localStorage.setItem('tb_urdu_sz', urduSize); }
     else { arabicSize = Math.min(54, Math.max(18, arabicSize + step)); localStorage.setItem('tb_arabic_sz', arabicSize); }
     applyFonts();
 }
 function applyFonts() {
     document.documentElement.style.setProperty('--urdu-size', urduSize + 'px');
     document.documentElement.style.setProperty('--arabic-size', arabicSize + 'px');
-    const us = document.getElementById('urduSz'); const as = document.getElementById('arabicSz');
-    if (us) us.textContent = urduSize; if (as) as.textContent = arabicSize;
+    const us = document.getElementById('urduSz');
+    const as = document.getElementById('arabicSz');
+    if (us) us.textContent = urduSize;
+    if (as) as.textContent = arabicSize;
 }
 
 // ===== LOADING =====
-function showLoading(show) { const el = document.getElementById('loadingOverlay'); if (el) el.classList.toggle('show', show); }
+function showLoading(show) {
+    const el = document.getElementById('loadingOverlay');
+    if (el) el.classList.toggle('show', show);
+}
 
-// PWA Service Worker Registration
+// ===== PWA =====
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js')
-            .then(reg => console.log('Service Worker Registered Successfully'))
-            .catch(err => console.log('Service Worker Registration Failed', err));
+            .then(() => console.log('SW Registered'))
+            .catch(err => console.log('SW Failed', err));
     });
 }
 </script>
