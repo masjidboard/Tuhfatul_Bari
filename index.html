@@ -699,6 +699,9 @@
             <div class="drawer-header">
                 <button class="drawer-close" onclick="closeDrawer()">✕</button>
                 <div class="drawer-title">فہرست مضامین</div>
+                <div class="toc-search" style="padding: 10px; border-bottom: 1px solid var(--border);">
+    <input type="text" id="tocSearch" placeholder="فہرست میں تلاش کریں..." oninput="filterToc()" style="width: 100%; padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--card-bg); color: var(--urdu-color); font-family: 'JameelNoori', serif; direction: rtl; box-sizing: border-box;">
+</div>
             </div>
             <div class="drawer-body" id="tocBody">
                 <div class="bm-empty">ڈیٹا لوڈ ہو رہا ہے...</div>
@@ -1148,11 +1151,13 @@ function renderBookmarks() {
         </div>`).join('');
 }
 
-// ===== SMART TOC (Accordion) =====
+// ===== SMART TOC (Accordion & Search) =====
+let tocData = [];
+
 function buildSmartToc() {
     const h1Regex = /\[H1\]([\s\S]*?)\[\/H1\]/g;
     const h2Regex = /\[H2\]([\s\S]*?)\[\/H2\]/g;
-    let tocData = []; let currentH1 = null;
+    tocData = []; let currentH1 = null;
     
     bookData.forEach((page, idx) => {
         const content = page.content || '';
@@ -1167,12 +1172,15 @@ function buildSmartToc() {
             else tocData.push({ title: m2[1].trim(), sub: `جلد: ${page.volume} | صفحہ: ${page.page_number}`, idx: idx, children: [] });
         }
     });
+    renderToc(tocData);
+}
 
+function renderToc(data) {
     const box = document.getElementById('tocBody');
-    if (!tocData.length) { box.innerHTML = '<div class="bm-empty">فہرست خالی ہے</div>'; return; }
+    if (!data.length) { box.innerHTML = '<div class="bm-empty">فہرست میں کچھ نہیں ملا</div>'; return; }
     
     let html = '';
-    tocData.forEach((item, i) => {
+    data.forEach((item, i) => {
         const hasChildren = item.children && item.children.length > 0;
         html += `
         <div>
@@ -1196,6 +1204,21 @@ function toggleTocNode(i) {
     const el = document.getElementById(`toc-child-${i}`);
     if(el) el.classList.toggle('open');
 }
+
+function filterToc() {
+    const q = document.getElementById('tocSearch').value.trim().toLowerCase();
+    if(!q) { renderToc(tocData); return; }
+    
+    const filtered = tocData.filter(item => {
+        if(item.title.toLowerCase().includes(q)) return true;
+        if(item.children && item.children.some(c => c.title.toLowerCase().includes(q))) return true;
+        return false;
+    });
+    renderToc(filtered);
+    // سرچ کے دوران ذیلی عنوانات خود بخود کھل جائیں گے
+    setTimeout(() => { document.querySelectorAll('.toc-children').forEach(el => el.classList.add('open')); }, 50);
+}
+
 function tocJump(idx) { jumpTo(idx); closeDrawer(); }
 function toggleDrawer() {
     const d = document.getElementById('tocDrawer');
