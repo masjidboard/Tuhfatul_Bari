@@ -1,6 +1,5 @@
-const CACHE_NAME = 'tohfat-ul-bari-v3'; // ورژن تبدیل کر دیا ہے تاکہ نیا کیش بنے
+const CACHE_NAME = 'tohfat-ul-bari-v4'; // ورژن 4
 
-// آپ کی GitHub ریپازٹری میں موجود تمام فائلوں کی لسٹ
 const urlsToCache = [
     '/',
     '/index.html',
@@ -12,24 +11,27 @@ const urlsToCache = [
     '/AlQalam.woff2',
     '/JameelNoori.ttf',
     '/JameelNoori.woff2',
-    '/Tohfat ul Bari Complete.pdf' // اگر پی ڈی ایف بڑی ہے تو پہلی بار لوڈ ہونے میں تھوڑا وقت لے سکتی ہے
+    '/Tohfat%20ul%20Bari%20Complete.pdf' // اسپیسز کی جگہ %20 لگا دیا گیا ہے
 ];
 
 self.addEventListener('install', (event) => {
     console.log('Service Worker: Installing...');
     event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then((cache) => {
-                console.log('Service Worker: Caching All Files');
-                return cache.addAll(urlsToCache);
-            })
+        caches.open(CACHE_NAME).then((cache) => {
+            console.log('Service Worker: Caching Files...');
+            // یہ نیا طریقہ ہے تاکہ اگر کوئی ایک فائل نہ ملے تو باقی سب کیش ہو جائیں
+            return Promise.allSettled(
+                urlsToCache.map(url => {
+                    return cache.add(url).catch(err => console.error('فائل کیش نہیں ہو سکی:', url, err));
+                })
+            );
+        })
     );
     self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {
     console.log('Service Worker: Activated');
-    // پرانے کیش کو ڈیلیٹ کرنے کا کوڈ
     event.waitUntil(
         caches.keys().then(cacheNames => {
             return Promise.all(
@@ -45,17 +47,33 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+    // صرف GET requests کو کیش کریں (کروم ایکسٹینشنز وغیرہ کو چھوڑ دیں)
+    if (event.request.method !== 'GET' || !event.request.url.startsWith(self.location.origin)) {
+        return;
+    }
+
     event.respondWith(
-        caches.match(event.request)
-            .then((response) => {
-                // اگر فائل کیش میں موجود ہے تو وہاں سے دکھائیں (آف لائن موڈ)
-                if (response) {
-                    return response;
+        caches.match(event.request).then((cachedResponse) => {
+            // اگر کیش میں موجود ہے تو وہاں سے دیں
+            if (cachedResponse) {
+                return cachedResponse;
+            }
+
+            // اگر کیش میں نہیں ہے تو انٹرنیٹ سے لائیں اور کیش میں محفوظ کر لیں (Dynamic Caching)
+            return fetch(event.request).then((networkResponse) => {
+                if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
+                    return networkResponse;
                 }
-                // اگر کیش میں نہیں ہے تو انٹرنیٹ سے لائیں
-                return fetch(event.request).catch(() => {
-                    // آف لائن ہونے کی صورت میں کوئی ایرر نہ آئے
+
+                let responseToCache = networkResponse.clone();
+                caches.open(CACHE_NAME).then((cache) => {
+                    cache.put(event.request, responseToCache);
                 });
-            })
+
+                return networkResponse;
+            }).catch(() => {
+                console.log('Offline and file not in cache');
+            });
+        })
     );
 });
