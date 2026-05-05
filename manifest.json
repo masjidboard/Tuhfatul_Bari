@@ -2,10 +2,12 @@
   "name": "تُحْفَةُ الْبَارِي",
   "short_name": "تحفۃ الباری",
   "description": "تحفۃ الباری فی الفقہ الشافعی",
-  "start_url": "./index.html",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#0A1628",
   "theme_color": "#0D2137",
+  "orientation": "portrait",
+  "scope": "/",
   "icons": [
     {
       "src": "icon-192.png",
